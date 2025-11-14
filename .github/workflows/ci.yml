@@ -1,0 +1,78 @@
+name: CI
+      continue-on-error: true
+        output: 'trivy-results.sarif'
+        format: 'sarif'
+        scan-ref: '.'
+        scan-type: 'fs'
+      with:
+      uses: aquasecurity/trivy-action@master
+    - name: Run security scan
+
+    - uses: actions/checkout@v3
+    steps:
+    runs-on: ubuntu-latest
+  security:
+
+        docker run --rm system-monitor:test python -c "from system_monitor import __version__; print(__version__)"
+      run: |
+    - name: Test Docker image
+
+      run: docker build -t system-monitor:test .
+    - name: Build Docker image
+
+    - uses: actions/checkout@v3
+    steps:
+    runs-on: ubuntu-latest
+  docker:
+
+        python -c "from system_monitor.main import app; print('Application loaded successfully')"
+      run: |
+    - name: Test application startup
+    
+        cp config.ini.example config.ini
+      run: |
+    - name: Create test config
+    
+        python -c "from system_monitor.main import app; print('Main app loaded')"
+        python -c "from system_monitor import __version__; print(f'Version: {__version__}')"
+      run: |
+    - name: Test imports
+    
+      continue-on-error: true
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+        # exit-zero treats all errors as warnings
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # stop the build if there are Python syntax errors or undefined names
+        pip install flake8
+      run: |
+    - name: Lint with flake8
+    
+        pip install pytest pytest-cov
+        pip install -r requirements.txt
+        python -m pip install --upgrade pip
+      run: |
+    - name: Install dependencies
+    
+        python-version: ${{ matrix.python-version }}
+      with:
+      uses: actions/setup-python@v4
+    - name: Set up Python ${{ matrix.python-version }}
+    
+    - uses: actions/checkout@v3
+    steps:
+
+        python-version: ['3.8', '3.9', '3.10', '3.11']
+        os: [ubuntu-latest, macos-latest, windows-latest]
+      matrix:
+    strategy:
+    runs-on: ${{ matrix.os }}
+  test:
+jobs:
+
+    branches: [ main ]
+  pull_request:
+    branches: [ main, develop ]
+  push:
+on:
+
+

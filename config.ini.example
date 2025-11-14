@@ -1,0 +1,14 @@
+[database]
+# PostgreSQL database configuration (optional, only needed for registration agent)
+host = localhost
+port = 5432
+db = postgres
+username = postgres
+password = your_password_here
+
+[api]
+# API server configuration
+host = 0.0.0.0
+port = 8000
+log_level = info
+

@@ -1,0 +1,2 @@
+"""CPU monitoring endpoints"""
+

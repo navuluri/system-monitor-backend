@@ -1,0 +1,2 @@
+"""Sensor monitoring endpoints"""
+
