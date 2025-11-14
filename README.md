@@ -4,14 +4,14 @@ A comprehensive, real-time system monitoring API built with FastAPI and psutil. 
 
 ## Features
 
-- 🖥️ **CPU Monitoring**: Real-time CPU usage, per-core utilization, and load averages
-- 💾 **Memory Tracking**: Virtual memory statistics including used, available, and cached memory
-- 💿 **Disk Usage**: Storage information for all mounted partitions
-- 🌐 **Network Stats**: Network interface statistics, bytes sent/received, and packet info
-- 📊 **Process Information**: Detailed information about running processes
-- 🌡️ **Sensor Data**: Temperature, fan speeds, and battery information (where available)
-- ⚙️ **System Info**: Boot time, uptime, and logged-in users
-- 📝 **PostgreSQL Integration**: Optional agent to register and update server metrics in a database
+- **CPU Monitoring**: Real-time CPU usage, per-core utilization, and load averages
+- **Memory Tracking**: Virtual memory statistics including used, available, and cached memory
+- **Disk Usage**: Storage information for all mounted partitions
+- **Network Stats**: Network interface statistics, bytes sent/received, and packet info
+- **Process Information**: Detailed information about running processes
+-  **Sensor Data**: Temperature, fan speeds, and battery information (where available)
+-  **System Info**: Boot time, uptime, and logged-in users
+- **PostgreSQL Integration**: Optional agent to register and update server metrics in a database
 
 ## Requirements
 
@@ -80,8 +80,9 @@ chmod +x start.sh
 
 The API will be available at `http://localhost:8000`
 
-### Running the Registration Agent (Optional)
+### Running the Registration Agent (Mandatory)
 
+This is mandatory and a one time task. 
 The registration agent continuously updates server metrics to a PostgreSQL database:
 
 ```bash
@@ -118,9 +119,9 @@ Once the server is running, visit:
 ### System
 - `GET /api/v1/system/` - Get system uptime and user information
 
-## Database Schema (Optional)
+## Database Schema (Mandatory)
 
-If using the registration agent, create this table in PostgreSQL:
+Create this table in PostgreSQL:
 
 ```sql
 CREATE TABLE server_info (
@@ -141,7 +142,7 @@ CREATE TABLE server_info (
 ### Project Structure
 
 ```
-system-monitor/
+system-monitor-backend/
 ├── system_monitor/
 │   ├── __init__.py
 │   ├── main.py              # FastAPI application entry point
@@ -203,7 +204,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support
 
-If you encounter any issues or have questions, please [open an issue](https://github.com/yourusername/system-monitor/issues).
+If you encounter any issues or have questions, please [open an issue](https://github.com/navuluri/system-monitor-backend/issues).
 
 ## Roadmap
 

@@ -5,7 +5,7 @@
 ```bash
 # Clone the repository
 git clone https://github.com/navuluri/system-monitor-backend.git
-cd system-monitor
+cd system-monitor-backend
 
 # Create virtual environment
 python -m venv .venv

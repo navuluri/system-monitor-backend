@@ -3,7 +3,7 @@ requires = ["setuptools>=45", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "system-monitor-api"
+name = "system-monitor-backend"
 version = "1.0.0"
 description = "A comprehensive system monitoring API built with FastAPI and psutil"
 readme = "README.md"
@@ -34,10 +34,10 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/system-monitor"
-Documentation = "https://github.com/yourusername/system-monitor#readme"
-Repository = "https://github.com/yourusername/system-monitor"
-"Bug Reports" = "https://github.com/yourusername/system-monitor/issues"
+Homepage = "https://github.com/navuluri/system-monitor-backend"
+Documentation = "https://github.com/navuluri/system-monitor-backend#readme"
+Repository = "https://github.com/navuluri/system-monitor-backend"
+"Bug Reports" = "https://github.com/navuluri/system-monitor-backend/issues"
 
 [project.scripts]
 system-monitor = "system_monitor.main:main"
